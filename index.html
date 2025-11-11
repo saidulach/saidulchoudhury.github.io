@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] | Professional Developer & Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* --- Basic Styling for a Clean, Professional Look --- */
+        :root {
+            --primary-color: #007bff; /* A nice professional blue */
+            --secondary-color: #333;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #6c757d;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: white;
+            padding: 15px 5%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Global Layout --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0;
+        }
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section (The intro banner) --- */
+        #hero {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 5px solid var(--primary-color);
+        }
+        #hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        #hero p {
+            font-size: 1.2em;
+            color: var(--light-text);
+        }
+
+        /* --- Project/Card Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: var(--primary-color);
+        }
+        .card p {
+            color: var(--light-text);
+        }
+
+        /* --- Button Style --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* --- Contact/Services Section Icons --- */
+        .service-icon, .contact-icon {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .navbar a {
+                margin: 5px 10px;
+            }
+            #hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <span style="font-size: 1.5em; font-weight: bold;">[Your Name]</span>
+        <div>
+            <a href="#hero">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Hi, I'm [Your Name]</h1>
+            <p>Full-Stack Developer focused on Python (FastAPI), Node.js, and D3.js. Providing expert consulting, training, and interview preparation.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+            <a href="#services" class="btn" style="background-color: #28a745;">Book a Session</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <h2>🚀 Featured Projects</h2>
+        <p class="section-description" style="color: var(--light-text);">Live applications and key repositories showcasing my technical stack.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>FastAPI Microservice Demo</h3>
+                <p>A fully deployed Python API for real-time data processing, hosted on [Render/Heroku URL].</p>
+                <p style="font-size: 0.9em; color: var(--light-text);">Stack: Python, FastAPI, PostgreSQL, Docker</p>
+                <a href="[LINK TO YOUR LIVE FASTAPI APP]" target="_blank" class="btn">Live Demo</a>
+            </div>
+
+            <div class="card">
+                <h3>Interactive Data Dashboard (Static)</h3>
+                <p>Complex data visualization built entirely with D3.js and vanilla JavaScript/HTML.</p>
+                <p style="font-size: 0.9em; color: var(--light-text);">Stack: D3.js, HTML5, CSS3</p>
+                <a href="[LINK TO THE STATIC PAGE IN THIS REPO]" target="_blank" class="btn">View Visualization</a>
+            </div>
+
+            <div class="card">
+                <h3>Node.js E-commerce Backend</h3>
+                <p>An example of a robust Node.js and Express backend with JWT authentication.</p>
+                <p style="font-size: 0.9em; color: var(--light-text);">Stack: Node.js, Express, MongoDB</p>
+                <a href="[LINK TO YOUR LIVE NODE.JS APP]" target="_blank" class="btn">Explore Code</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container" style="text-align: center;">
+        <h2>💡 My Professional Services</h2>
+        <p style="color: var(--light-text);">Leverage my experience through personalized sessions designed for your career growth.</p>
+
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-handshake service-icon"></i>
+                <h3>Technical Consulting</h3>
+                <p>1-on-1 sessions to discuss architecture, stack choice, and project strategy.</p>
+                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Book Consulting</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher service-icon"></i>
+                <h3>Custom Training</h3>
+                <p>Deep-dive training on FastAPI, Node.js fundamentals, or advanced D3.js techniques.</p>
+                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Schedule Training</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-check service-icon"></i>
+                <h3>Interview Preparation</h3>
+                <p>Mock interviews and targeted feedback on data structures, algorithms, and system design.</p>
+                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Start Prep</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container" style="text-align: center;">
+        <h2>🔗 Get In Touch</h2>
+        <p style="color: var(--light-text);">I'm always open to new projects and collaborations.</p>
+
+        <div style="margin-top: 30px;">
+            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:you@yourdomain.com" style="color: var(--primary-color);">you@yourdomain.com</a></p>
+            <p><i class="fab fa-github contact-icon"></i> <a href="https://github.com/[YourUsername]" target="_blank" style="color: var(--primary-color);">github.com/[YourUsername]</a></p>
+            <p><i class="fab fa-linkedin contact-icon"></i> <a href="https://linkedin.com/in/[YourProfile]" target="_blank" style="color: var(--primary-color);">linkedin.com/in/[YourProfile]</a></p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 [Your Name]. Hosted with GitHub Pages.
+    </footer>
+
+</body>
+</html>
