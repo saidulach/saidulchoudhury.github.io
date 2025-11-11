@@ -20,7 +20,6 @@
             line-height: 1.6;
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -46,7 +45,6 @@
             font-weight: 500;
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -73,16 +71,9 @@
             animation: typing 4s steps(40) forwards, blink 0.7s infinite;
         }
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        @keyframes blink { 50% { border-color: transparent; } }
 
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Section styling */
         section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -119,7 +110,7 @@
             opacity: 1;
         }
 
-        /* Project Cards */
+        /* Projects */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -137,7 +128,6 @@
             transform: scale(1.03);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px;
@@ -159,7 +149,7 @@
 <body>
 
 <!-- Navbar -->
-<nav>
+<nav data-aos="fade-down">
     <div><strong>[Your Name]</strong></div>
     <div>
         <a href="#about">About</a>
@@ -172,49 +162,48 @@
 <!-- HERO -->
 <div class="hero" data-aos="fade-up">
     <h1>[Your Name]</h1>
-    <div class="typing">[Your Title or Tagline, e.g., Power BI | Databricks | Azure Consultant]</div>
+    <div class="typing">[Your Title | Power BI | Databricks | Azure | Python | R]</div>
 </div>
 
 <!-- ABOUT -->
 <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p style="text-align:center;">
-        [A short 3–4 line description about you.  
-        Example: Senior Data Engineer working primarily on Azure ecosystem — Power BI, Databricks, ADF, Python, R, Spotfire.  
-        Freelancing on BI consulting, training, and custom visual solutions.]
+        [3–4 line intro about your skills, background, and freelance services.]
     </p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
+<section id="skills">
+    <h2 data-aos="fade-up">Skills</h2>
     <div class="skills-list">
-        <div class="skill">[Skill 1]</div>
-        <div class="skill">[Skill 2]</div>
-        <div class="skill">[Skill 3]</div>
-        <div class="skill">[Skill 4]</div>
-        <div class="skill">[Skill 5]</div>
-        <div class="skill">[Skill 6]</div>
+        <div class="skill" data-aos="zoom-in">Power BI</div>
+        <div class="skill" data-aos="zoom-in" data-aos-delay="100">Azure</div>
+        <div class="skill" data-aos="zoom-in" data-aos-delay="200">Databricks</div>
+        <div class="skill" data-aos="zoom-in" data-aos-delay="300">Python</div>
+        <div class="skill" data-aos="zoom-in" data-aos-delay="400">R / Spotfire</div>
+        <div class="skill" data-aos="zoom-in" data-aos-delay="500">SQL</div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
+
     <div class="projects">
         <div class="project-card" data-aos="zoom-in">
-            <h3>[Project Title]</h3>
-            <p>[Short description of what you built]</p>
+            <h3>[Project 1]</h3>
+            <p>[Short description]</p>
         </div>
 
-        <div class="project-card" data-aos="zoom-in">
-            <h3>[Project Title]</h3>
-            <p>[Short description of what you built]</p>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="150">
+            <h3>[Project 2]</h3>
+            <p>[Short description]</p>
         </div>
 
-        <div class="project-card" data-aos="zoom-in">
-            <h3>[Project Title]</h3>
-            <p>[Short description of what you built]</p>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+            <h3>[Project 3]</h3>
+            <p>[Short description]</p>
         </div>
     </div>
 </section>
@@ -222,7 +211,7 @@
 <!-- CONTACT -->
 <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
-    <p style="text-align:center;">Feel free to reach out for consulting, training, or freelancing.</p>
+    <p style="text-align:center;">Reach out for consulting, training, or freelancing.</p>
     <div style="text-align:center;margin-top:20px;">
         <a class="contact-btn" href="mailto:[your-email]">Email Me</a>
     </div>
@@ -235,18 +224,7 @@
 <!-- AOS Animation Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800 });
-
-    // Animated skills reveal
-    const skills = document.querySelectorAll('.skill');
-    const revealSkills = () => {
-        const trigger = window.innerHeight - 100;
-        skills.forEach(skill => {
-            const top = skill.getBoundingClientRect().top;
-            if (top < trigger) skill.classList.add('visible');
-        });
-    };
-    window.addEventListener('scroll', revealSkills);
+    AOS.init({ duration: 900, once: true });
 </script>
 
 </body>
