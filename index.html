@@ -7,142 +7,182 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* --- Basic Styling for a Clean, Professional Look --- */
-        :root {
-            --primary-color: #007bff; /* A nice professional blue */
-            --secondary-color: #333;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-            --light-text: #6c757d;
-        }
+    :root {
+        --primary-color: #007bff;
+        --secondary-color: #333;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+        --light-text: #6c757d;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        opacity: 0;
+        animation: fadeInPage 1s ease forwards;
+    }
 
-        /* --- Navigation Bar --- */
+    @keyframes fadeInPage {
+        to { opacity: 1; }
+    }
+
+    /* --- NAVBAR --- */
+    .navbar {
+        background-color: white;
+        padding: 15px 5%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeDown 0.8s ease forwards;
+        animation-delay: 0.3s;
+    }
+
+    @keyframes fadeDown {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .navbar a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        position: relative;
+    }
+
+    /* underline hover animation */
+    .navbar a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: -4px;
+        left: 0;
+        transition: width 0.3s;
+    }
+    .navbar a:hover::after {
+        width: 100%;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 0;
+    }
+
+    /* --- HERO SECTION ANIMATION --- */
+    #hero {
+        background-color: #ffffff;
+        text-align: center;
+        padding: 80px 20px;
+        border-bottom: 5px solid var(--primary-color);
+    }
+
+    #hero h1 {
+        font-size: 3em;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+        opacity: 0;
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.5s;
+    }
+
+    #hero p {
+        font-size: 1.2em;
+        color: var(--light-text);
+        opacity: 0;
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.9s;
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* --- BUTTON ANIMATION --- */
+    .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* --- CARD ANIMATE --- */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+        animation: fadeUp 1s ease forwards;
+    }
+
+    /* delay each card slightly */
+    .card:nth-child(1) { animation-delay: 0.3s; }
+    .card:nth-child(2) { animation-delay: 0.45s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 18px rgba(0,0,0,0.12);
+    }
+
+    footer {
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
         .navbar {
-            background-color: white;
-            padding: 15px 5%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            padding: 15px;
         }
         .navbar a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        .navbar a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Global Layout --- */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 0;
-        }
-        h1, h2, h3 {
-            color: var(--secondary-color);
-        }
-
-        /* --- Hero Section (The intro banner) --- */
-        #hero {
-            background-color: #ffffff;
-            text-align: center;
-            padding: 80px 20px;
-            border-bottom: 5px solid var(--primary-color);
+            margin: 5px 10px;
         }
         #hero h1 {
-            font-size: 3em;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            font-size: 2.5em;
         }
-        #hero p {
-            font-size: 1.2em;
-            color: var(--light-text);
-        }
-
-        /* --- Project/Card Grid --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-        }
-        .card h3 {
-            color: var(--primary-color);
-        }
-        .card p {
-            color: var(--light-text);
-        }
-
-        /* --- Button Style --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        
-        /* --- Contact/Services Section Icons --- */
-        .service-icon, .contact-icon {
-            font-size: 2em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        /* --- Footer --- */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-size: 0.9em;
-        }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px;
-            }
-            .navbar a {
-                margin: 5px 10px;
-            }
-            #hero h1 {
-                font-size: 2.5em;
-            }
-        }
-    </style>
+    }
+</style>
+    
 </head>
 <body>
 
