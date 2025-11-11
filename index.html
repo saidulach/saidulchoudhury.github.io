@@ -1,278 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] | Professional Developer & Consultant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Your Name] | Portfolio</title>
+
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
-    :root {
-        --primary-color: #007bff;
-        --secondary-color: #333;
-        --background-color: #f8f9fa;
-        --text-color: #333;
-        --light-text: #6c757d;
-    }
-
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        opacity: 0;
-        animation: fadeInPage 1s ease forwards;
-    }
-
-    @keyframes fadeInPage {
-        to { opacity: 1; }
-    }
-
-    /* --- NAVBAR --- */
-    .navbar {
-        background-color: white;
-        padding: 15px 5%;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        opacity: 0;
-        transform: translateY(-20px);
-        animation: fadeDown 0.8s ease forwards;
-        animation-delay: 0.3s;
-    }
-
-    @keyframes fadeDown {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            line-height: 1.6;
         }
-    }
 
-    .navbar a {
-        color: var(--secondary-color);
-        text-decoration: none;
-        margin-left: 20px;
-        font-weight: 500;
-        position: relative;
-    }
-
-    /* underline hover animation */
-    .navbar a::after {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        background: var(--primary-color);
-        bottom: -4px;
-        left: 0;
-        transition: width 0.3s;
-    }
-    .navbar a:hover::after {
-        width: 100%;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-        padding: 40px 0;
-    }
-
-    /* --- HERO SECTION ANIMATION --- */
-    #hero {
-        background-color: #ffffff;
-        text-align: center;
-        padding: 80px 20px;
-        border-bottom: 5px solid var(--primary-color);
-    }
-
-    #hero h1 {
-        font-size: 3em;
-        margin-bottom: 0.5rem;
-        color: var(--primary-color);
-        opacity: 0;
-        animation: fadeUp 1s ease forwards;
-        animation-delay: 0.5s;
-    }
-
-    #hero p {
-        font-size: 1.2em;
-        color: var(--light-text);
-        opacity: 0;
-        animation: fadeUp 1s ease forwards;
-        animation-delay: 0.9s;
-    }
-
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-    }
 
-    /* --- BUTTON ANIMATION --- */
-    .btn {
-        display: inline-block;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-top: 15px;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    /* --- CARD ANIMATE --- */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-    }
-
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: transform 0.3s, box-shadow 0.3s;
-        opacity: 0;
-        animation: fadeUp 1s ease forwards;
-    }
-
-    /* delay each card slightly */
-    .card:nth-child(1) { animation-delay: 0.3s; }
-    .card:nth-child(2) { animation-delay: 0.45s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 18px rgba(0,0,0,0.12);
-    }
-
-    footer {
-        background-color: var(--secondary-color);
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-        .navbar {
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
             flex-direction: column;
-            padding: 15px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
         }
-        .navbar a {
-            margin: 5px 10px;
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
         }
-        #hero h1 {
-            font-size: 2.5em;
+
+        .typing {
+            color: #00eaff;
+            font-weight: 600;
+            font-size: 22px;
+            border-right: 2px solid #00eaff;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(40) forwards, blink 0.7s infinite;
         }
-    }
-</style>
-    
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Section styling */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #00eaff;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            transform: translateY(40px);
+            opacity: 0;
+            transition: all 0.6s ease-out;
+        }
+
+        .skill.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Project Cards */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            background: #111;
+        }
+
+        .contact-btn {
+            background: #00eaff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <span style="font-size: 1.5em; font-weight: bold;">[Your Name]</span>
-        <div>
-            <a href="#hero">Home</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+<!-- Navbar -->
+<nav>
+    <div><strong>[Your Name]</strong></div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" data-aos="fade-up">
+    <h1>[Your Name]</h1>
+    <div class="typing">[Your Title or Tagline, e.g., Power BI | Databricks | Azure Consultant]</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p style="text-align:center;">
+        [A short 3–4 line description about you.  
+        Example: Senior Data Engineer working primarily on Azure ecosystem — Power BI, Databricks, ADF, Python, R, Spotfire.  
+        Freelancing on BI consulting, training, and custom visual solutions.]
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-list">
+        <div class="skill">[Skill 1]</div>
+        <div class="skill">[Skill 2]</div>
+        <div class="skill">[Skill 3]</div>
+        <div class="skill">[Skill 4]</div>
+        <div class="skill">[Skill 5]</div>
+        <div class="skill">[Skill 6]</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project-card" data-aos="zoom-in">
+            <h3>[Project Title]</h3>
+            <p>[Short description of what you built]</p>
         </div>
-    </nav>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Hi, I'm [Your Name]</h1>
-            <p>Full-Stack Developer focused on Python (FastAPI), Node.js, and D3.js. Providing expert consulting, training, and interview preparation.</p>
-            <a href="#portfolio" class="btn">View My Work</a>
-            <a href="#services" class="btn" style="background-color: #28a745;">Book a Session</a>
+        <div class="project-card" data-aos="zoom-in">
+            <h3>[Project Title]</h3>
+            <p>[Short description of what you built]</p>
         </div>
-    </section>
 
-    <section id="portfolio" class="container">
-        <h2>🚀 Featured Projects</h2>
-        <p class="section-description" style="color: var(--light-text);">Live applications and key repositories showcasing my technical stack.</p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>FastAPI Microservice Demo</h3>
-                <p>A fully deployed Python API for real-time data processing, hosted on [Render/Heroku URL].</p>
-                <p style="font-size: 0.9em; color: var(--light-text);">Stack: Python, FastAPI, PostgreSQL, Docker</p>
-                <a href="[LINK TO YOUR LIVE FASTAPI APP]" target="_blank" class="btn">Live Demo</a>
-            </div>
-
-            <div class="card">
-                <h3>Interactive Data Dashboard (Static)</h3>
-                <p>Complex data visualization built entirely with D3.js and vanilla JavaScript/HTML.</p>
-                <p style="font-size: 0.9em; color: var(--light-text);">Stack: D3.js, HTML5, CSS3</p>
-                <a href="[LINK TO THE STATIC PAGE IN THIS REPO]" target="_blank" class="btn">View Visualization</a>
-            </div>
-
-            <div class="card">
-                <h3>Node.js E-commerce Backend</h3>
-                <p>An example of a robust Node.js and Express backend with JWT authentication.</p>
-                <p style="font-size: 0.9em; color: var(--light-text);">Stack: Node.js, Express, MongoDB</p>
-                <a href="[LINK TO YOUR LIVE NODE.JS APP]" target="_blank" class="btn">Explore Code</a>
-            </div>
+        <div class="project-card" data-aos="zoom-in">
+            <h3>[Project Title]</h3>
+            <p>[Short description of what you built]</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="services" class="container" style="text-align: center;">
-        <h2>💡 My Professional Services</h2>
-        <p style="color: var(--light-text);">Leverage my experience through personalized sessions designed for your career growth.</p>
+<!-- CONTACT -->
+<section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p style="text-align:center;">Feel free to reach out for consulting, training, or freelancing.</p>
+    <div style="text-align:center;margin-top:20px;">
+        <a class="contact-btn" href="mailto:[your-email]">Email Me</a>
+    </div>
+</section>
 
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-handshake service-icon"></i>
-                <h3>Technical Consulting</h3>
-                <p>1-on-1 sessions to discuss architecture, stack choice, and project strategy.</p>
-                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Book Consulting</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-chalkboard-teacher service-icon"></i>
-                <h3>Custom Training</h3>
-                <p>Deep-dive training on FastAPI, Node.js fundamentals, or advanced D3.js techniques.</p>
-                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Schedule Training</a>
-            </div>
-            <div class="card">
-                <i class="fas fa-user-check service-icon"></i>
-                <h3>Interview Preparation</h3>
-                <p>Mock interviews and targeted feedback on data structures, algorithms, and system design.</p>
-                <a href="[LINK TO YOUR CALENDLY/TIDYCAL PAGE]" target="_blank" class="btn">Start Prep</a>
-            </div>
-        </div>
-    </section>
+<footer>
+    © [Year] [Your Name]. All Rights Reserved.
+</footer>
 
-    <section id="contact" class="container" style="text-align: center;">
-        <h2>🔗 Get In Touch</h2>
-        <p style="color: var(--light-text);">I'm always open to new projects and collaborations.</p>
+<!-- AOS Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800 });
 
-        <div style="margin-top: 30px;">
-            <p><i class="fas fa-envelope contact-icon"></i> <a href="mailto:you@yourdomain.com" style="color: var(--primary-color);">you@yourdomain.com</a></p>
-            <p><i class="fab fa-github contact-icon"></i> <a href="https://github.com/[YourUsername]" target="_blank" style="color: var(--primary-color);">github.com/[YourUsername]</a></p>
-            <p><i class="fab fa-linkedin contact-icon"></i> <a href="https://linkedin.com/in/[YourProfile]" target="_blank" style="color: var(--primary-color);">linkedin.com/in/[YourProfile]</a></p>
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2025 [Your Name]. Hosted with GitHub Pages.
-    </footer>
+    // Animated skills reveal
+    const skills = document.querySelectorAll('.skill');
+    const revealSkills = () => {
+        const trigger = window.innerHeight - 100;
+        skills.forEach(skill => {
+            const top = skill.getBoundingClientRect().top;
+            if (top < trigger) skill.classList.add('visible');
+        });
+    };
+    window.addEventListener('scroll', revealSkills);
+</script>
 
 </body>
 </html>
