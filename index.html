@@ -72,25 +72,53 @@
             color: #00eaff;
             font-weight: 600;
             font-size: 22px;
-            border-right: 2px solid #00eaff;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .typing-text {
             white-space: nowrap;
             overflow: hidden;
             width: 0;
-            animation: typing 4s steps(40) forwards, blink 0.7s infinite;
+            animation: typing 4s steps(37, end) forwards;
         }
 
-        @keyframes typing { from { width: 0; } to { width: 100%; } }
-        @keyframes blink { 50% { border-color: transparent; } }
+        .typing-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 234, 255, 0.7);
+            padding: 6px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 234, 255, 0.35), rgba(3, 22, 31, 0.6));
+            box-shadow: 0 0 14px rgba(0, 234, 255, 0.22);
+            animation: icon-blink 0.9s steps(2, start) infinite;
+        }
+
+        .typing-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes typing { from { width: 0; } to { width: 37ch; } }
+        @keyframes icon-blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
 
         section {
-            padding: 80px 20px;
+            padding: 60px 20px;
             max-width: 1000px;
             margin: auto;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             font-size: 32px;
             color: #00eaff;
         }
@@ -136,6 +164,51 @@
             transform: scale(1.03);
         }
 
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            padding: 28px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, rgba(14, 28, 43, 0.75), rgba(9, 20, 32, 0.9));
+            border: 1px solid rgba(0, 234, 255, 0.08);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 55px rgba(0, 234, 255, 0.18);
+        }
+
+        .service-title {
+            margin: 0;
+            font-size: 22px;
+            color: #ffffff;
+        }
+
+        .service-summary {
+            margin: 0;
+            font-size: 15px;
+            color: rgba(199, 213, 224, 0.78);
+            line-height: 1.7;
+        }
+
+        .service-meta {
+            margin-top: auto;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(0, 234, 255, 0.75);
+        }
+
         footer {
             text-align: center;
             padding: 40px;
@@ -143,13 +216,124 @@
             background: #111;
         }
 
+        .contact-section {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 234, 255, 0.12), rgba(0, 120, 255, 0.08));
+            border: 1px solid rgba(0, 234, 255, 0.15);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 24px;
+        }
+
+        .contact-eyebrow {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: rgba(0, 234, 255, 0.8);
+        }
+
+        .contact-lead {
+            margin: 0;
+            max-width: 520px;
+            font-size: 18px;
+            color: #c7d5e0;
+        }
+
+        .contact-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            min-width: 150px;
+            padding: 16px 22px;
+            background: rgba(6, 15, 27, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .contact-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .contact-value a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            color: #00eaff;
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-note {
+            margin: 0;
+            font-size: 14px;
+            color: rgba(199, 213, 224, 0.72);
+        }
+
         .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: #00eaff;
-            padding: 12px 25px;
-            border-radius: 25px;
-            color: #000;
+            padding: 12px 28px;
+            border-radius: 999px;
+            color: #02131a;
             text-decoration: none;
             font-weight: 600;
+            border: none;
+            box-shadow: 0 18px 35px rgba(0, 234, 255, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 45px rgba(0, 234, 255, 0.3);
+            background: #5ff4ff;
+        }
+
+        .contact-btn.secondary {
+            background: transparent;
+            color: #00eaff;
+            border: 1px solid rgba(0, 234, 255, 0.6);
+            box-shadow: none;
+        }
+
+        .contact-btn.secondary:hover {
+            background: rgba(0, 234, 255, 0.1);
+            color: #ffffff;
         }
 
         /* Mobile Menu */
@@ -188,7 +372,7 @@
             }
 
             section {
-                padding: 60px 15px;
+                padding: 50px 15px;
             }
 
             .skills-list {
@@ -210,8 +394,31 @@
                 padding: 18px;
             }
 
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 24px;
+            }
+
+            .contact-section {
+                padding: 32px 24px;
+                gap: 20px;
+            }
+
+            .contact-details {
+                gap: 16px;
+            }
+
+            .contact-details li {
+                min-width: 130px;
+                padding: 14px 18px;
+            }
+
             .contact-btn {
-                padding: 10px 20px;
+                padding: 12px 24px;
                 font-size: 14px;
             }
         }
@@ -275,8 +482,18 @@
 
             .typing {
                 font-size: 14px;
+            }
+
+            .typing-text {
                 white-space: normal;
-                border-right: none;
+                animation: none;
+                width: auto;
+            }
+
+            .typing-icon {
+                width: 32px;
+                height: 32px;
+                padding: 4px;
             }
 
             h2 {
@@ -285,7 +502,7 @@
             }
 
             section {
-                padding: 50px 12px;
+                padding: 40px 12px;
             }
 
             .skills-list {
@@ -303,6 +520,50 @@
 
             footer {
                 padding: 30px 15px;
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 24px 18px;
+                gap: 18px;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .contact-details li {
+                width: 100%;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+
+            .contact-btn {
+                width: 100%;
+            }
+
+            .contact-note {
+                font-size: 13px;
+            }
+
+            .service-card {
+                padding: 22px;
+                gap: 12px;
+            }
+
+            .service-title {
+                font-size: 20px;
+            }
+
+            .service-summary {
                 font-size: 14px;
             }
         }
@@ -326,7 +587,12 @@
 <!-- HERO -->
 <div class="hero" data-aos="fade-up">
     <h1>Saidul Choudhury</h1>
-    <div class="typing">Analytics Engineer & Data Consultant</div>
+    <div class="typing">
+        <span class="typing-text">Analytics Engineer &amp; Data Consultant</span>
+        <span class="typing-icon" aria-hidden="true">
+            <img src="file:///C:/Users/Saidul.Choudhury/Downloads/artificial-intelligence.png" alt="" />
+        </span>
+    </div>
 </div>
 
 <!-- ABOUT -->
@@ -399,11 +665,58 @@
 
 
 <!-- CONTACT -->
+<section id="services" data-aos="fade-up">
+    <h2>Services</h2>
+    <p style="text-align:center; color: rgba(199, 213, 224, 0.75); max-width: 720px; margin: 0 auto 36px;">
+        From rapid diagnostics to full-scale delivery, I partner with teams to translate analytics investments into measurable wins.
+        Below are a few engagement models you can tailor to your roadmap.
+    </p>
+    <div class="services-grid">
+        <article class="service-card" data-aos="zoom-in">
+            <h3 class="service-title">Analytics Strategy Sprints</h3>
+            <p class="service-summary">A focused two-week engagement to inventory your analytics landscape, clarify KPIs, and produce a prioritized action plan. Includes stakeholder workshops and a north-star playbook.</p>
+            <span class="service-meta">Typical timeline · 2-3 weeks</span>
+        </article>
+        <article class="service-card" data-aos="zoom-in" data-aos-delay="120">
+            <h3 class="service-title">Spotfire &amp; Power BI Buildouts</h3>
+            <p class="service-summary">Hands-on dashboard and data model development with embedded writeback, row-level security, and automation guardrails. Delivered with reusable assets and admin handover.</p>
+            <span class="service-meta">Deliverables · dashboards · documentation</span>
+        </article>
+        <article class="service-card" data-aos="zoom-in" data-aos-delay="240">
+            <h3 class="service-title">GenAI Workflow Prototyping</h3>
+            <p class="service-summary">Rapid prototyping of copilots that accelerate reporting, QA, or knowledge sharing. Covers prompt design, evaluation guardrails, and pilot rollout support.</p>
+            <span class="service-meta">Engagement · pilot to production</span>
+        </article>
+        <article class="service-card" data-aos="zoom-in" data-aos-delay="360">
+            <h3 class="service-title">Enablement &amp; Upskilling Pods</h3>
+            <p class="service-summary">Small-group coaching pods for analysts and citizen developers. Combines live labs, playbooks, and office hours so the team can sustain momentum post-project.</p>
+            <span class="service-meta">Format · cohort-based learning</span>
+        </article>
+    </div>
+</section>
+
+
+<!-- CONTACT -->
 <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
-    <p style="text-align:center;">Reach out for consulting, training, or freelancing.</p>
-    <div style="text-align:center;margin-top:20px;">
-        <a class="contact-btn" href="mailto:saidul.a.ch@gmail.com">Email Me</a>
+    <div class="contact-section">
+        <span class="contact-eyebrow">Let's work together</span>
+        <p class="contact-lead">Ready to unlock more value from your analytics investments? Share a bit about your challenge and I'll respond with next steps tailored to you.</p>
+        <ul class="contact-details">
+            <li>
+                <span class="contact-label">Email</span>
+                <span class="contact-value"><a href="mailto:saidul.a.ch@gmail.com">saidul.a.ch@gmail.com</a></span>
+            </li>
+            <li>
+                <span class="contact-label">Response</span>
+                <span class="contact-value">Within 1-2 business days</span>
+            </li>
+        </ul>
+        <div class="contact-actions">
+            <a class="contact-btn" href="https://wa.me/9731539680" target="_blank" rel="noopener noreferrer">Start a Project</a>
+            <a class="contact-btn secondary" href="https://www.linkedin.com/in/saidulalamchoudhury/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+        <p class="contact-note">Prefer a different channel? Mention it in your email and I'll follow up there.</p>
     </div>
 </section>
 
