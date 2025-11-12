@@ -143,6 +143,142 @@
             text-decoration: none;
             font-weight: 600;
         }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .typing {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .skills-list {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .skill {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                padding: 18px;
+            }
+
+            .contact-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 15px;
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 8px 0;
+                padding: 8px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .typing {
+                font-size: 14px;
+                white-space: normal;
+                border-right: none;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            section {
+                padding: 50px 12px;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .skill {
+                padding: 12px;
+            }
+
+            .project-card h3 {
+                font-size: 18px;
+            }
+
+            footer {
+                padding: 30px 15px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
@@ -151,7 +287,8 @@
 <!-- Navbar -->
 <nav data-aos="fade-down">
     <div><strong>Saidul Choudhury</strong></div>
-    <div>
+    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -249,6 +386,22 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 900, once: true });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
 </script>
 
 </body>
