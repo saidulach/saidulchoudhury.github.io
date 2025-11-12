@@ -36,6 +36,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
         }
 
         nav a {
@@ -43,6 +44,13 @@
             margin-left: 20px;
             text-decoration: none;
             font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .hero {
@@ -150,8 +158,10 @@
             background: none;
             border: none;
             color: #fff;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
         }
 
         .nav-links {
@@ -165,8 +175,8 @@
             }
 
             nav a {
-                margin-left: 15px;
-                font-size: 14px;
+                margin-left: 12px;
+                font-size: 13px;
             }
 
             .hero h1 {
@@ -212,19 +222,33 @@
 
         @media (max-width: 480px) {
             nav {
-                padding: 12px 15px;
-                flex-wrap: wrap;
+                padding: 15px;
+                flex-wrap: nowrap;
+                position: relative;
+            }
+
+            nav > div:first-child {
+                flex: 1;
+                font-size: 16px;
             }
 
             .mobile-menu-btn {
                 display: block;
+                position: relative;
             }
 
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
                 width: 100%;
                 flex-direction: column;
-                margin-top: 15px;
+                background: rgba(0,0,0,0.95);
+                backdrop-filter: blur(8px);
+                padding: 10px 0;
+                margin-top: 0;
             }
 
             .nav-links.active {
@@ -232,9 +256,16 @@
             }
 
             .nav-links a {
-                margin: 8px 0;
-                padding: 8px;
+                margin: 0;
+                padding: 12px 20px;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
             }
 
             .hero {
