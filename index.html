@@ -164,10 +164,6 @@
             z-index: 1001;
         }
 
-        .nav-links {
-            display: flex;
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
             nav {
@@ -318,7 +314,7 @@
 <!-- Navbar -->
 <nav data-aos="fade-down">
     <div><strong>Saidul Choudhury</strong></div>
-    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="mobile-menu-btn" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
     <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -356,6 +352,8 @@
         <div class="skill" data-aos="zoom-in" data-aos-delay="400">R / Spotfire</div>
         <div class="skill" data-aos="zoom-in" data-aos-delay="500">SQL</div>
     </div>
+    </section>
+
 <section id="genai" data-aos="fade-up">
     <h2>Generative AI & Automation</h2>
     <p style="text-align:center; color: #aaa;">
